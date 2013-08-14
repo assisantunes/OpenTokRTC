@@ -157,10 +157,9 @@
         divId$.find('.flagUser').click(function() {
           var streamConnection;
           streamConnection = $(this).data('streamconnection');
-          if (confirm("Is this user being inappropriate?")) {
+          if (confirm("Is this user being inappropriate? If so, we are sorry that you had to go through that. Click confirm to remove user")) {
             self.applyClassFilter("Blur", "." + streamConnection);
-            self.session.forceDisconnect(streamConnection.split("stream")[1]);
-            return alert("We're sorry that you had to go through that. The offensive user has been removed");
+            return self.session.forceDisconnect(streamConnection.split("stream")[1]);
           }
         });
         streamRef = new Firebase("https://rtcdemo.firebaseIO.com/room/" + this.rid + "/users/" + streamConnectionId + "/filter");

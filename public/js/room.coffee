@@ -98,10 +98,9 @@ class User
       self = @
       divId$.find('.flagUser').click ->
         streamConnection = $(@).data('streamconnection')
-        if confirm("Is this user being inappropriate?")
+        if confirm("Is this user being inappropriate? If so, we are sorry that you had to go through that. Click confirm to remove user")
           self.applyClassFilter("Blur", ".#{streamConnection}")
           self.session.forceDisconnect( streamConnection.split("stream")[1] )
-          alert( "We're sorry that you had to go through that. The offensive user has been removed")
 
       # Apply any existing filters to the video element
       streamRef = new Firebase("https://rtcdemo.firebaseIO.com/room/#{@rid}/users/#{streamConnectionId}/filter")
