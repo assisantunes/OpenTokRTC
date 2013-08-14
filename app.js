@@ -64,5 +64,5 @@ function returnRoomResponse( res, data ){
 // ***
 // *** start server, listen to port (predefined or 9393)
 // ***
-var port = process.env.PORT || 9393;
+var port = process.env.PORT || 5000;
 app.listen(port);
