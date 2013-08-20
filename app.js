@@ -29,16 +29,21 @@ app.get("/", function( req, res ){
 });
 
 app.get("/:rid", function( req, res ){
-  var rid = req.params.rid;
+  // find request format, json or html?
+  var path = req.params.rid.split(".json");
+  var rid = path[0];
   var roomRef = new Firebase("https://rtcdemo.firebaseIO.com/room/" + rid);
 
-  // Remove room if there are no users
-  var presenceRef = new Firebase("https://rtcdemo.firebaseIO.com/room/" + rid + "/users");
-  presenceRef.on('value', function(dataSnapshot){
-    if(dataSnapshot.numChildren() == 0){
-      roomRef.remove();
-    }
-  });
+  // only track presence for site users, html requests
+  if( path.length == 1 ){
+    var presenceRef = new Firebase("https://rtcdemo.firebaseIO.com/room/" + rid + "/users");
+    presenceRef.on('value', function(dataSnapshot){
+      if(dataSnapshot.numChildren() == 0){
+        // remove room if there is no one in the room
+        roomRef.remove();
+      }
+    });
+  }
 
   // Generate sessionId if there are no existing session Id's
   roomRef.once('value', function(dataSnapshot){
@@ -47,18 +52,22 @@ app.get("/:rid", function( req, res ){
     if(!sid){
       OpenTokObject.createSession(function(sessionId){
         sidSnapshot.ref().set( sessionId );
-        returnRoomResponse( res, { rid: rid, sid: sessionId });
+        returnRoomResponse( res, { rid: rid, sid: sessionId }, path[1]);
       });
     }else{
-      returnRoomResponse( res, { rid: rid, sid: sid });
+      returnRoomResponse( res, { rid: rid, sid: sid }, path[1]);
     }
   });
 });
 
-function returnRoomResponse( res, data ){
+function returnRoomResponse( res, data, json ){
   data.apiKey = OTKEY;
   data.token = OpenTokObject.generateToken( {session_id: data.sid, role:OpenTokLibrary.RoleConstants.MODERATOR} );
-  res.render( 'room', data );
+  if( json == "" ){
+    res.json( data );
+  }else{
+    res.render( 'room', data );
+  }
 }
 
 // ***
