@@ -22,20 +22,22 @@ app.set( 'views', __dirname + "/views");
 app.set( 'view engine', 'ejs' );
 
 // ***
-// *** When user goes to root directory, redirect them to a room (timestamp)
+// *** When user goes to root directory, render index page
 // ***
 app.get("/", function( req, res ){
   res.render( 'index', {greeting:"Hello World"} );
 });
 
+var presenceListener = {};
 app.get("/:rid", function( req, res ){
   // find request format, json or html?
   var path = req.params.rid.split(".json");
   var rid = path[0];
   var roomRef = new Firebase("https://rtcdemo.firebaseIO.com/room/" + rid);
 
-  // only track presence for site users, html requests
-  if( path.length == 1 ){
+  // on incoming request, make sure we have presenceListener to remove the room if it is empty
+  if( !presenceListener[rid] ){
+    presenceListener[rid] = true
     var presenceRef = new Firebase("https://rtcdemo.firebaseIO.com/room/" + rid + "/users");
     presenceRef.on('value', function(dataSnapshot){
       if(dataSnapshot.numChildren() == 0){
