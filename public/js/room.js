@@ -235,6 +235,9 @@
       var parts, text;
       if (e.keyCode === 13) {
         text = $('#messageInput').val().trim();
+        if (text.length < 1) {
+          return;
+        }
         parts = text.split(' ');
         if (parts[0] === "/name") {
           if (this.takenNames[parts[1]]) {
