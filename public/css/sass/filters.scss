@@ -1,3 +1,5 @@
+@import "variables";
+
 .Blur video{
   -webkit-filter: Blur(15px);
   -moz-filter: Blur(15px);
@@ -35,10 +37,14 @@
     line-height: 100%;
     padding: 0 20px;
     color: $dark-gray;
+    font-family: $avantFont;
+    font-weight:normal;
   }
   #filterOptions{
     display:inline;
     .filterOption{
+      font-family: $avantFont;
+      font-weight:normal;
       color: $light-gray;
       cursor:pointer;
       &:hover{

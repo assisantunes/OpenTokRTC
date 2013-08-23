@@ -1,3 +1,5 @@
+@import "variables";
+
 body{
   background-color: #1ba3dd;
 }
@@ -7,11 +9,11 @@ body{
   background: rgba( 0,0,0, 0.7 );
 }
 body, input{
-  font-family:"AvantGardeGothicITCW01X";
+  font-family: $avantFont;
   color:#eeeef2;
 }
 h1{
-  font-family:"AvantGardeGothicITCW01X";
+  font-family: $avantFont;
   font-size:60px;
   line-height:100%;
   margin-top:0;
