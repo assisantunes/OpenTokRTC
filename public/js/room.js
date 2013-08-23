@@ -84,7 +84,7 @@
         urlRegex = /(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/g;
         for (_i = 0, _len = text.length; _i < _len; _i++) {
           e = text[_i];
-          if (e.match(urlRegex)) {
+          if (e.match(urlRegex) && e.split("..").length < 2 && e[e.length - 1] !== ".") {
             message += e.replace(urlRegex, "<a href='http://$2.$3$4' target='_blank'>$1$2.$3$4<a>") + " ";
           } else {
             message += Handlebars.Utils.escapeExpression(e) + " ";

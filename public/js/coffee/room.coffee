@@ -45,7 +45,7 @@ class User
       message = ""
       urlRegex = /(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/g
       for e in text
-        if e.match( urlRegex )
+        if e.match( urlRegex ) and e.split("..").length < 2 and e[e.length-1] != "."
           message += e.replace( urlRegex,"<a href='http://$2.$3$4' target='_blank'>$1$2.$3$4<a>" )+" "
         else
           message += Handlebars.Utils.escapeExpression(e) + " "
