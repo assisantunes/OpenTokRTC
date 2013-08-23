@@ -17,3 +17,6 @@ $('#roomName').keypress (e) ->
 
 mtop = (window.innerHeight - $(".container").height())/3
 $(".container").css({"margin-top": "#{mtop}px"})
+window.onresize = ->
+  mtop = (window.innerHeight - $(".container").height())/3
+  $(".container").css({"margin-top": "#{mtop}px"})

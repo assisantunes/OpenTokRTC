@@ -31,4 +31,11 @@
     "margin-top": "" + mtop + "px"
   });
 
+  window.onresize = function() {
+    mtop = (window.innerHeight - $(".container").height()) / 3;
+    return $(".container").css({
+      "margin-top": "" + mtop + "px"
+    });
+  };
+
 }).call(this);
