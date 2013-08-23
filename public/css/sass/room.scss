@@ -3,17 +3,14 @@
 @import "chatBox";
 
 section {
-  border-radius: 10px;
-  box-shadow: 3px 4px 5px $btnShadowColor;
-  padding: 15px;
-  background: $backgroundContrastColor;
-  margin: 10px 0;
 }
 
 body {
     // Crutches: these should be removed while modularizing the styles.
     // It was put here just to help make things "work" and get a usable 
     // version out.
+    background-color: #222;
+
     * { box-sizing: content-box; }
 
     // TODO: list of modules
@@ -22,16 +19,21 @@ body {
     // * ChatArea
     // * VideoEffects?
 
-    #streams{
-      height:400px;
+    .container{
+      position: fixed;
+      top:0;
+      bottom:0;
+      right:0;
+      left:0;
     }
 
     #streams_container{
-      position:relative;
-      height:380px;
-      border-radius:5px;
+      position:fixed;
+      top: 75px;
+      bottom: 42px;
+      right: 395px;
+      left: 0px;
       background-color:#222;
-      border:10px solid $pink;
       text-align:center;
       box-sizing: border-box;
 
@@ -40,6 +42,10 @@ body {
         position: relative;
         text-align:center;
         box-sizing: border-box;
+        .OT_video-container{
+          transition: width 1s;
+          -webkit-transition: width 1s;
+        }
       }
 
       .subscriber_stream_content:hover .flagUser{
@@ -71,46 +77,39 @@ body {
     }
 
     #title{
-      position:relative;
-      height:80px;
+      position:fixed;
+      top:0;
+      right: 400px;
+      left: 0px;
+      height:70px;
+      width: 300px;
+      margin: auto;
     }
 
     #title_content{
       position:relative;
       width:100%;
       height:100%;
-      background-color: $roomAccentColor;
+      background-color: rgba(0,0,0,0.5);
+      p{
+        color: #eeeef2;
+        text-align:center;
+        a{
+          color: $pink;
+        }
+      }
     }
 
-    #title_content h3{
-      position:relative;
-      float:left;
-      left:10px;
+    #title_content .titleText{
       width: 100%;
-      height:60px;
+      height:30px;
       text-align:center;
       color: $hdrContrastColor;
       font-family: $avantFont;
       font-weight: lighter;
       vertical-align:middle;
       line-height:100%;
-      font-size: 50px;
-    }
-
-    #user_image{
-      float:left;
-      margin-left:10px;
-      margin-top:10px;
-      width:50px;
-      height:50px;
-      border-radius:100px;
-      overflow:hidden;
-      border:5px solid rgba(252,252,252,0.7) ;
-      img{
-        display:block;
-        width:50px;
-        height:50px;
-      }
+      font-size: 30px;
     }
 }
 

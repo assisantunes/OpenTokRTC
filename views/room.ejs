@@ -18,45 +18,42 @@
 <body>
 
 <div class="container">
-  <div class="row">
-    <div class="span7">
-      <section id="title">
-        <div id="title_content">
-          <h3><%= rid %></h3>
-        </div>
-      </section>
-
-      <section id="streams">
-        <div id="streams_container">
-          <div class="streamContainer">
-            <div id="myPublisher"></div>
-          </div>
-        </div>
-      </section>
+  <section id="title">
+    <div id="title_content">
+      <p class="titleText"><%= rid %></p>
+      <p>
+      Share Link: 
+      <a href="http://opentokrtc.com/<%= rid %>">
+        http://opentokrtc.com/<%= rid %>
+      </a>
+      </p>
     </div>
-    <div class="span5">
-      <div id="chatroom">
-        <div id="displayChat"><ul id=""></ul></div>
-        <div id="chatInput">
-          <input type="" id="messageInput" disabled/>
-          <i class="icon-comments-alt"></i>
-        </div>
+  </section>
+
+  <div id="streams_container">
+    <div class="streamContainer">
+      <div id="myPublisher"></div>
+    </div>
+  </div>
+
+  <div id="chatroom">
+    <div id="chatElementContainer">
+      <div id="displayChat"><ul id=""></ul></div>
+      <div id="chatInput">
+        <input type="" id="messageInput" disabled/>
+        <i class="icon-comments-alt"></i>
       </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="span12">
-      <div id="filterContainer">
-        <h1>Filters: </h1>
-        <div id="filterOptions">
-          <h1 class="filterOption" data-value="Blur">Blur</h1>
-          <h1 class="filterOption" data-value="Sepia">Sepia</h1>
-          <h1 class="filterOption" data-value="Grayscale" >Grayscale</h1>
-          <h1 class="filterOption" data-value="Invert" >Invert</h1>
-          <h1 class="filterOption optionSelected" data-value="">None</h1>
-        </div>
-      </div>
+  <div id="filterContainer">
+    <h1>Filters: </h1>
+    <div id="filterOptions">
+      <h1 class="filterOption" data-value="Blur">Blur</h1>
+      <h1 class="filterOption" data-value="Sepia">Sepia</h1>
+      <h1 class="filterOption" data-value="Grayscale" >Grayscale</h1>
+      <h1 class="filterOption" data-value="Invert" >Invert</h1>
+      <h1 class="filterOption optionSelected" data-value="">None</h1>
     </div>
   </div>
 </div>

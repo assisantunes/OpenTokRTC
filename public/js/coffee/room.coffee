@@ -1,5 +1,5 @@
-mtop = (window.innerHeight - $(".container").height())/2
-$(".container").css({"margin-top": "#{mtop}px"})
+window.onresize = ->
+  ResizeLayoutContainer()
 
 class User
   constructor: (@rid, @apiKey, @sid, @token) ->

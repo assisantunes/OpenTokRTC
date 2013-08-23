@@ -23,19 +23,24 @@
 
 
 #filterContainer{
-  height:50px;
+  border:1px solid #DDD;
+  height:43px;
   box-sizing: border-box;
-  font-size:32px;
+  box-shadow: 1px 1px 3px #999 inset;
+  font-size:20px;
   color: $hdrContrastColor;
   padding-top:10px;
-  margin: 20px 0px;
-  box-shadow: 3px 3px 3px #999 inset, -1px -1px 3px #999 inset;
   text-align:center;
+  position:fixed;
+  bottom: 0px;
+  right: 400px;
+  left: 0px;
+  background-color: #EEE;
   h1{
     display:inline;
-    font-size: 30px;
+    font-size: 20px;
     line-height: 100%;
-    padding: 0 20px;
+    padding: 0 10px;
     color: $dark-gray;
     font-family: $avantFont;
     font-weight:normal;

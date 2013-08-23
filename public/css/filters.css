@@ -29,19 +29,24 @@
   filter: Invert(100%); }
 
 #filterContainer {
-  height: 50px;
+  border: 1px solid #DDD;
+  height: 43px;
   box-sizing: border-box;
-  font-size: 32px;
+  box-shadow: 1px 1px 3px #999 inset;
+  font-size: 20px;
   color: white;
   padding-top: 10px;
-  margin: 20px 0px;
-  box-shadow: 3px 3px 3px #999 inset, -1px -1px 3px #999 inset;
-  text-align: center; }
+  text-align: center;
+  position: fixed;
+  bottom: 0px;
+  right: 400px;
+  left: 0px;
+  background-color: #EEE; }
   #filterContainer h1 {
     display: inline;
-    font-size: 30px;
+    font-size: 20px;
     line-height: 100%;
-    padding: 0 20px;
+    padding: 0 10px;
     color: #444444;
     font-family: "AvantGardeGothicITCW01X";
     font-weight: normal; }
@@ -53,8 +58,8 @@
       color: #999999;
       cursor: pointer; }
       #filterContainer #filterOptions .filterOption:hover {
-        background-color: #0099cc;
+        background-color: #1ba3dd;
         color: white; }
     #filterContainer #filterOptions .optionSelected {
-      background-color: #0099cc;
+      background-color: #1ba3dd;
       color: white; }

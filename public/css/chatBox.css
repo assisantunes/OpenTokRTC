@@ -12,16 +12,27 @@
  */
 #chatroom {
   background: white;
-  height: 545px;
-  border-radius: 5px;
-  border: 3px solid #0099cc;
-  margin: 10px 0; }
+  border: 3px solid #1ba3dd;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  box-sizing: border-box; }
+
+#chatElementContainer {
+  height: 100%;
+  position: relative; }
 
 #displayChat {
-  height: 495px;
   padding: 5px;
   overflow: auto;
-  background: #EEE; }
+  background: #EEE;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 40px; }
   #displayChat .chatEvent {
     text-align: center;
     color: #aaa; }
@@ -34,10 +45,13 @@
     font-size: 15px; }
 
 #chatInput {
-  height: 40px; }
+  height: 40px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0; }
   #chatInput input {
     border: 1px solid #DDD;
-    border-radius: 5px;
     background: none;
     height: 40px;
     width: 100%;
